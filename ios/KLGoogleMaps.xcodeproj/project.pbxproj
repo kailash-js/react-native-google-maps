@@ -6,6 +6,14 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		5EFF61C925B6787E0090B8E1 /* KLGoogleMaps.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EFF61C725B6787E0090B8E1 /* KLGoogleMaps.m */; };
+		5EFF61CC25B6788A0090B8E1 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFF61CB25B6788A0090B8E1 /* Test.swift */; };
+		5EFF61CE25B678C60090B8E1 /* KLGoogleMapsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFF61CD25B678C60090B8E1 /* KLGoogleMapsView.swift */; };
+		5EFF61D025B678D20090B8E1 /* KLGoogleMapsViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFF61CF25B678D20090B8E1 /* KLGoogleMapsViewManager.swift */; };
+		5EFF61D225B678E40090B8E1 /* KLGoogleMapsViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EFF61D125B678E40090B8E1 /* KLGoogleMapsViewManager.m */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		58B511D91A9E6C8500147676 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -20,6 +28,13 @@
 
 /* Begin PBXFileReference section */
 		134814201AA4EA6300B7C361 /* libKLGoogleMaps.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libKLGoogleMaps.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5EFF61C725B6787E0090B8E1 /* KLGoogleMaps.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLGoogleMaps.m; sourceTree = "<group>"; };
+		5EFF61C825B6787E0090B8E1 /* KLGoogleMaps.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLGoogleMaps.h; sourceTree = "<group>"; };
+		5EFF61CA25B6788A0090B8E1 /* KLGoogleMaps-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KLGoogleMaps-Bridging-Header.h"; sourceTree = "<group>"; };
+		5EFF61CB25B6788A0090B8E1 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		5EFF61CD25B678C60090B8E1 /* KLGoogleMapsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLGoogleMapsView.swift; sourceTree = "<group>"; };
+		5EFF61CF25B678D20090B8E1 /* KLGoogleMapsViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLGoogleMapsViewManager.swift; sourceTree = "<group>"; };
+		5EFF61D125B678E40090B8E1 /* KLGoogleMapsViewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KLGoogleMapsViewManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,7 +59,14 @@
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
+				5EFF61D125B678E40090B8E1 /* KLGoogleMapsViewManager.m */,
+				5EFF61CF25B678D20090B8E1 /* KLGoogleMapsViewManager.swift */,
+				5EFF61CD25B678C60090B8E1 /* KLGoogleMapsView.swift */,
+				5EFF61CB25B6788A0090B8E1 /* Test.swift */,
+				5EFF61C825B6787E0090B8E1 /* KLGoogleMaps.h */,
+				5EFF61C725B6787E0090B8E1 /* KLGoogleMaps.m */,
 				134814211AA4EA7D00B7C361 /* Products */,
+				5EFF61CA25B6788A0090B8E1 /* KLGoogleMaps-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,6 +101,7 @@
 				TargetAttributes = {
 					58B511DA1A9E6C8500147676 = {
 						CreatedOnToolsVersion = 6.1.1;
+						LastSwiftMigration = 1170;
 					};
 				};
 			};
@@ -105,6 +128,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EFF61C925B6787E0090B8E1 /* KLGoogleMaps.m in Sources */,
+				5EFF61CC25B6788A0090B8E1 /* Test.swift in Sources */,
+				5EFF61CE25B678C60090B8E1 /* KLGoogleMapsView.swift in Sources */,
+				5EFF61D025B678D20090B8E1 /* KLGoogleMapsViewManager.swift in Sources */,
+				5EFF61D225B678E40090B8E1 /* KLGoogleMapsViewManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,32 +253,41 @@
 		58B511F01A9E6C8500147676 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../../../React/**",
 					"$(SRCROOT)/../../react-native/React/**",
 				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = KLGoogleMaps;
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "KLGoogleMaps-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
 		58B511F11A9E6C8500147676 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../../../React/**",
 					"$(SRCROOT)/../../react-native/React/**",
 				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = KLGoogleMaps;
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "KLGoogleMaps-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
