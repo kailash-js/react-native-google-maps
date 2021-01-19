@@ -6,9 +6,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.facebook.react.bridge.ReactApplicationContext;
+import com.facebook.react.bridge.ReadableArray;
+import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.common.MapBuilder;
 import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
@@ -71,12 +74,12 @@ class GoogleMapView extends MapView implements OnMapReadyCallback, GoogleMap.OnM
         this.map = googleMap;
         googleMap.setOnMarkerClickListener(this);
 
-        for(int i=0;i<5000;i++){
-            MarkerOptions markerOption = new MarkerOptions()
-                    .position(new LatLng(randFloat(1.1233438, 37.4233438), randFloat(-10.0728817, -122.5728817)))
-                    .title("Marker").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
-            Marker m = googleMap.addMarker(markerOption);
-        }
+//        for(int i=0;i<5000;i++){
+//            MarkerOptions markerOption = new MarkerOptions()
+//                    .position(new LatLng(randFloat(1.1233438, 37.4233438), randFloat(-10.0728817, -122.5728817)))
+//                    .title("Marker").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
+//            Marker m = googleMap.addMarker(markerOption);
+//        }
 
         //googleMap.getUiSettings().setAllGesturesEnabled(false);
         googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(37.4233438, -122.0728817), 5));
@@ -86,6 +89,15 @@ class GoogleMapView extends MapView implements OnMapReadyCallback, GoogleMap.OnM
     public boolean onMarkerClick(final Marker marker) {
         Log.w("map", "market clicked");
         return true;
+    }
+
+    void loadMarker(){
+        for(int i=0;i<1000;i++){
+            MarkerOptions markerOption = new MarkerOptions()
+                    .position(new LatLng(randFloat(1.1233438, 37.4233438), randFloat(-10.0728817, -122.5728817)))
+                    .title("Marker").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
+            this.map.addMarker(markerOption);
+        }
     }
 }
 
@@ -110,5 +122,22 @@ public class LKGoogleMapsViewManager extends ViewGroupManager<GoogleMapView> {
     public Map<String, Object> getExportedCustomDirectEventTypeConstants() {
         MapBuilder.Builder<String, Object> builder = MapBuilder.builder();       
         return builder.build();
+    }
+
+    @Nullable
+    @Override
+    public Map<String, Integer> getCommandsMap() {
+        return super.getCommandsMap();
+    }
+
+    @Override
+    public void receiveCommand(@NonNull GoogleMapView root, String commandId, @Nullable ReadableArray args) {
+        switch (commandId) {
+            case "loadMarker":
+                ReadableMap map = args.getMap(0);
+                Log.w("map",map.toString());
+                root.loadMarker();
+                break;
+        }
     }
 }

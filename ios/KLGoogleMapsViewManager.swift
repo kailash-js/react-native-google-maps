@@ -17,6 +17,17 @@ class KLGoogleMapsViewManager: RCTViewManager {
   
   override func view() -> UIView! {
     return KLGoogleMapsView()
-  }      
+  }
+    
+
+    @objc
+    func loadMarker(_ node: NSNumber, camera: NSDictionary) { // 1
+      DispatchQueue.main.async {
+        let component = self.bridge.uiManager.view(
+          forReactTag: node
+          ) as! KLGoogleMapsView
+        component.loadMarker(camera)
+      }
+    }
 }
 
