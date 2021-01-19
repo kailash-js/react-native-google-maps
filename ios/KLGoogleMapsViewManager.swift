@@ -6,4 +6,17 @@
 //  Copyright © 2021 Facebook. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+@objc(KLGoogleMapsViewManager)
+class KLGoogleMapsViewManager: RCTViewManager {
+  
+  @objc static override func requiresMainQueueSetup() -> Bool {
+    return true
+  }
+  
+  override func view() -> UIView! {
+    return KLGoogleMapsView()
+  }      
+}
+
