@@ -10,5 +10,5 @@
 #import "React/RCTViewManager.h"
 
 @interface RCT_EXTERN_MODULE(KLGoogleMapsViewManager, RCTViewManager)
-RCT_EXTERN_METHOD(loadMarker:(nonnull NSNumber *)node camera: (NSDictionary*)camera)
+RCT_EXTERN_METHOD xxx(loadMarker:(nonnull NSNumber *)node camera: (NSDictionary*)camera)
 @end
